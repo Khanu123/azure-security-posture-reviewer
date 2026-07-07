@@ -1,0 +1,39 @@
+{
+  "storage_accounts": [
+    {
+      "name": "storage-prod",
+      "allow_blob_public_access": true,
+      "supports_https_traffic_only": false,
+      "minimum_tls_version": "TLS1_0"
+    },
+    {
+      "name": "storage-logs",
+      "allow_blob_public_access": false,
+      "supports_https_traffic_only": true,
+      "minimum_tls_version": "TLS1_2"
+    }
+  ],
+  "network_security_groups": [
+    {
+      "name": "nsg-web",
+      "rules": [
+        {"name": "Allow-SSH-Internet", "source": "0.0.0.0/0", "destination_port": 22, "access": "Allow"},
+        {"name": "Allow-HTTPS", "source": "0.0.0.0/0", "destination_port": 443, "access": "Allow"}
+      ]
+    },
+    {
+      "name": "nsg-admin",
+      "rules": [
+        {"name": "Allow-RDP-VPN", "source": "10.20.0.0/16", "destination_port": 3389, "access": "Allow"}
+      ]
+    }
+  ],
+  "key_vaults": [
+    {"name": "kv-prod", "soft_delete_enabled": true, "purge_protection_enabled": false},
+    {"name": "kv-secure", "soft_delete_enabled": true, "purge_protection_enabled": true}
+  ],
+  "public_ips": [
+    {"name": "pip-prod-db", "attached_to": "prod-db-01", "environment": "production", "business_critical": true},
+    {"name": "pip-test-web", "attached_to": "test-web-01", "environment": "test", "business_critical": false}
+  ]
+}
