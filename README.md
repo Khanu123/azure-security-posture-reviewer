@@ -1,4 +1,4 @@
-# Azure Security Posture Reviewer
+﻿# Azure Security Posture Reviewer
 
 ![Focus](https://img.shields.io/badge/Focus-Azure%20Cloud%20Security-blue)
 ![Role](https://img.shields.io/badge/Role-Cloud%20Security-green)
@@ -9,6 +9,16 @@ Azure Security Posture Reviewer is a defensive cloud security project that revie
 ## Screenshot
 
 ![Azure Security Posture Reviewer findings preview](docs/screenshots/report-preview.png)
+
+## Employer Review
+
+| Area | Evidence |
+| --- | --- |
+| Target role | Cloud Security / Junior Cyber Security Analyst |
+| Strongest proof | Azure posture checks, example findings, remediation guide, unit tests |
+| Start here | [reports/example_findings.md](reports/example_findings.md) |
+| Deeper review | [docs/employer-review.md](docs/employer-review.md) |
+| Roadmap | [docs/roadmap.md](docs/roadmap.md) |
 
 It focuses on entry-level cloud security analyst skills:
 
@@ -54,3 +64,4 @@ MEDIUM kv-prod Key Vault purge protection is disabled
 ## Responsible Use
 
 This project reviews provided JSON exports only. It does not connect to live Azure subscriptions, change cloud resources, or perform intrusive testing.
+
