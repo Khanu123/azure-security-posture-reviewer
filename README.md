@@ -6,6 +6,10 @@
 
 Azure Security Posture Reviewer is a defensive cloud security project that reviews safe exported Azure resource data for common misconfigurations.
 
+## Screenshot
+
+![Azure Security Posture Reviewer findings preview](docs/screenshots/report-preview.png)
+
 It focuses on entry-level cloud security analyst skills:
 
 - Reviewing storage account exposure.
