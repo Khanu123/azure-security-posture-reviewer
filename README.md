@@ -26,6 +26,8 @@ It focuses on entry-level cloud security analyst skills:
 - Checking network security group rules.
 - Identifying risky public IP and management access patterns.
 - Reviewing Key Vault soft-delete and purge protection.
+- Reviewing Azure SQL public access, TLS, and auditing.
+- Reviewing App Service HTTPS, FTPS, and minimum TLS posture.
 - Producing clear remediation guidance.
 - Testing posture checks against synthetic data.
 
@@ -42,6 +44,8 @@ Cloud security roles need people who can explain risk clearly, not just run tool
 | NSG allows SSH/RDP from internet | Management exposure |
 | Key Vault purge protection disabled | Weak recovery and ransomware resilience |
 | Public IP on sensitive workload | Increased attack surface |
+| Azure SQL public access or missing auditing | Data exposure and reduced visibility |
+| App Service without HTTPS or modern TLS | Insecure application transport |
 
 ## Quick Start
 
@@ -52,6 +56,8 @@ pip install -e .
 python -m azure_security_posture_reviewer.reviewer
 python -m unittest discover -s tests -v
 ```
+
+The command generates both `reports/example_findings.md` and `reports/example_findings.json`, with control IDs, direct evidence, severity, and remediation for every finding.
 
 ## Example Output
 

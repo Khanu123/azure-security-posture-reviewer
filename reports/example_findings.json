@@ -1,0 +1,98 @@
+[
+  {
+    "rule_id": "AZ-APP-001",
+    "resource": "app-legacy",
+    "severity": "high",
+    "title": "App Service does not enforce HTTPS",
+    "evidence": "https_only=false",
+    "remediation": "Enable HTTPS Only for the App Service."
+  },
+  {
+    "rule_id": "AZ-NSG-001",
+    "resource": "nsg-web",
+    "severity": "high",
+    "title": "SSH/RDP is open to the internet",
+    "evidence": "Allow-SSH-Internet allows 0.0.0.0/0 to port 22",
+    "remediation": "Restrict management access to VPN, privileged access workstations, or just-in-time access."
+  },
+  {
+    "rule_id": "AZ-NET-001",
+    "resource": "pip-prod-db",
+    "severity": "high",
+    "title": "Business-critical production workload has a public IP",
+    "evidence": "attached_to=prod-db-01; environment=production",
+    "remediation": "Place sensitive workloads behind a load balancer, private endpoint, VPN, or application gateway where possible."
+  },
+  {
+    "rule_id": "AZ-SQL-001",
+    "resource": "sql-prod",
+    "severity": "high",
+    "title": "SQL public network access is enabled",
+    "evidence": "public_network_access=Enabled",
+    "remediation": "Use private endpoints and disable public network access where possible."
+  },
+  {
+    "rule_id": "AZ-STO-001",
+    "resource": "storage-prod",
+    "severity": "high",
+    "title": "Public blob access is enabled",
+    "evidence": "allow_blob_public_access=true",
+    "remediation": "Disable public blob access unless there is a documented business requirement."
+  },
+  {
+    "rule_id": "AZ-STO-002",
+    "resource": "storage-prod",
+    "severity": "high",
+    "title": "Secure transfer is not enforced",
+    "evidence": "supports_https_traffic_only=false",
+    "remediation": "Require HTTPS-only traffic for the storage account."
+  },
+  {
+    "rule_id": "AZ-APP-002",
+    "resource": "app-legacy",
+    "severity": "medium",
+    "title": "Unencrypted FTP is allowed",
+    "evidence": "ftps_state=AllAllowed",
+    "remediation": "Set FTPS state to FtpsOnly or Disabled."
+  },
+  {
+    "rule_id": "AZ-APP-003",
+    "resource": "app-legacy",
+    "severity": "medium",
+    "title": "App Service minimum TLS is below 1.2",
+    "evidence": "minimum_tls_version=1.0",
+    "remediation": "Set the minimum TLS version to 1.2 or higher."
+  },
+  {
+    "rule_id": "AZ-KV-002",
+    "resource": "kv-prod",
+    "severity": "medium",
+    "title": "Key Vault purge protection is disabled",
+    "evidence": "purge_protection_enabled=false",
+    "remediation": "Enable purge protection for production vaults."
+  },
+  {
+    "rule_id": "AZ-SQL-002",
+    "resource": "sql-prod",
+    "severity": "medium",
+    "title": "SQL minimum TLS is below 1.2",
+    "evidence": "minimum_tls_version=1.0",
+    "remediation": "Require TLS 1.2 or higher for database connections."
+  },
+  {
+    "rule_id": "AZ-SQL-003",
+    "resource": "sql-prod",
+    "severity": "medium",
+    "title": "SQL auditing is disabled",
+    "evidence": "auditing_enabled=false",
+    "remediation": "Enable auditing and route logs to an approved monitoring destination."
+  },
+  {
+    "rule_id": "AZ-STO-003",
+    "resource": "storage-prod",
+    "severity": "medium",
+    "title": "Minimum TLS version is below TLS1_2",
+    "evidence": "minimum_tls_version=TLS1_0",
+    "remediation": "Set the minimum TLS version to TLS1_2 or higher."
+  }
+]

@@ -35,5 +35,13 @@
   "public_ips": [
     {"name": "pip-prod-db", "attached_to": "prod-db-01", "environment": "production", "business_critical": true},
     {"name": "pip-test-web", "attached_to": "test-web-01", "environment": "test", "business_critical": false}
+  ],
+  "sql_servers": [
+    {"name": "sql-prod", "public_network_access": "Enabled", "minimum_tls_version": "1.0", "auditing_enabled": false},
+    {"name": "sql-reporting", "public_network_access": "Disabled", "minimum_tls_version": "1.2", "auditing_enabled": true}
+  ],
+  "app_services": [
+    {"name": "app-legacy", "https_only": false, "ftps_state": "AllAllowed", "minimum_tls_version": "1.0"},
+    {"name": "app-secure", "https_only": true, "ftps_state": "FtpsOnly", "minimum_tls_version": "1.2"}
   ]
 }
